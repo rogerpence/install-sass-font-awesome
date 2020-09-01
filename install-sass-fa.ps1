@@ -44,3 +44,5 @@ invoke-webrequest -uri "https://raw.githubusercontent.com/rogerpence/install-sas
 invoke-webrequest -uri "https://raw.githubusercontent.com/rogerpence/install-sass-font-awesome/main/scss/components/_icons-pseudo-before.scss" -outfile .\scss\components\_icons-pseudo-before.scss
 invoke-webrequest -uri "https://raw.githubusercontent.com/rogerpence/install-sass-font-awesome/main/scss/global.scss" -outfile .\scss\global.scss
 invoke-webrequest -uri "https://raw.githubusercontent.com/rogerpence/install-sass-font-awesome/main/.gitignore" -outfile .\.gitignore
+
+npm run sass:dev
