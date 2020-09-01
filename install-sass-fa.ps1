@@ -29,25 +29,14 @@ copy-item -path node_modules\@fortawesome\fontawesome-pro\js\all.js -destination
 # Copy Font Awesome's Web fonts.
 copy-item -path node_modules\@fortawesome\fontawesome-pro\webfonts\* -destination .\dist\assets\webfonts\
 
-# Create root Sass file.
-new-item .\scss\global.scss -itemtype 'file' | out-null
-
-# Add imports.
-$file = '.\scss\global.scss'
-add-content -path $file -value "@import 'fa-scss/fontawesome.scss';"
-add-content -path $file -value "@import 'fa-scss/solid.scss';"
-
 # Add Sass build scripts to package.json.
 $scriptValue = "npx+sass+scss/global.scss+dist/assets/css/global.css+--watch"
 npx editPackageJson -k "sass:dev" -v $scriptValue --out-null
-
 $scriptValue = "npx+sass+scss/global.scss+dist/assets/css/global.css+--style=compressed"
 npx editPackageJson -k "sass:prod" -v $scriptValue --out-null
 
-# Fetch index.html
-# Fetch index_pseudo_before.html
-
-# Fetch index.html.
-#invoke-webrequest -Uri "https://raw.githubusercontent.com/rogerpence/install-sass-fontawesome/main/dist/index.html" -outfile .\dist\index.html
-# Fetch .gitignore.
-invoke-webrequest -Uri "https://raw.githubusercontent.com/rogerpence/install-sass-fontawesome/main/.gitignore" -outfile .\.gitignore
+invoke-webrequest -uri "https://raw.githubusercontent.com/rogerpence/install-sass-font-awesome/main/dist/index.html" -outfile .\dist\index.html
+invoke-webrequest -uri "https://raw.githubusercontent.com/rogerpence/install-sass-font-awesome/main/dist/pseudo-before.html" -outfile .\dist\index_pseudo_before.html
+invoke-webrequest -uri "https://raw.githubusercontent.com/rogerpence/install-sass-font-awesome/main/scss/components/_icons-pseudo-before.scss" -outfile .\scss\components\_icons-pseudo-before.scss
+invoke-webrequest -uri "https://raw.githubusercontent.com/rogerpence/install-sass-font-awesome/main/scss/global.scss" -output .\scss\global.scss
+invoke-webrequest -uri "https://raw.githubusercontent.com/rogerpence/install-sass-font-awesome/main/.gitignore" -outfile .\.gitignore
