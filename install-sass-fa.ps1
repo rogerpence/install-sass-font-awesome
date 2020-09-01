@@ -38,5 +38,5 @@ npx editPackageJson -k "sass:prod" -v $scriptValue --out-null
 invoke-webrequest -uri "https://raw.githubusercontent.com/rogerpence/install-sass-font-awesome/main/dist/index.html" -outfile .\dist\index.html
 invoke-webrequest -uri "https://raw.githubusercontent.com/rogerpence/install-sass-font-awesome/main/dist/pseudo-before.html" -outfile .\dist\index_pseudo_before.html
 invoke-webrequest -uri "https://raw.githubusercontent.com/rogerpence/install-sass-font-awesome/main/scss/components/_icons-pseudo-before.scss" -outfile .\scss\components\_icons-pseudo-before.scss
-invoke-webrequest -uri "https://raw.githubusercontent.com/rogerpence/install-sass-font-awesome/main/scss/global.scss" -output .\scss\global.scss
+invoke-webrequest -uri "https://raw.githubusercontent.com/rogerpence/install-sass-font-awesome/main/scss/global.scss" -outfile .\scss\global.scss
 invoke-webrequest -uri "https://raw.githubusercontent.com/rogerpence/install-sass-font-awesome/main/.gitignore" -outfile .\.gitignore
