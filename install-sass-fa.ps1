@@ -30,13 +30,17 @@ copy-item -path node_modules\@fortawesome\fontawesome-pro\js\all.js -destination
 copy-item -path node_modules\@fortawesome\fontawesome-pro\webfonts\* -destination .\dist\assets\webfonts\
 
 # Add Sass build scripts to package.json.
-$scriptValue = "npx+sass+scss/global.scss+dist/assets/css/global.css+--watch"
+$scriptValue = "npx+sass+scss/global.scss+dist/assets/css/global.css"
 npx editPackageJson -k "sass:dev" -v $scriptValue --out-null
+
+$scriptValue = "npx+sass+scss/global.scss+dist/assets/css/global.css+--watch"
+npx editPackageJson -k "sass:dev-watch" -v $scriptValue --out-null
+
 $scriptValue = "npx+sass+scss/global.scss+dist/assets/css/global.css+--style=compressed"
 npx editPackageJson -k "sass:prod" -v $scriptValue --out-null
 
 invoke-webrequest -uri "https://raw.githubusercontent.com/rogerpence/install-sass-font-awesome/main/dist/index.html" -outfile .\dist\index.html
-invoke-webrequest -uri "https://raw.githubusercontent.com/rogerpence/install-sass-font-awesome/main/dist/pseudo-before.html" -outfile .\dist\index_pseudo_before.html
+invoke-webrequest -uri "https://raw.githubusercontent.com/rogerpence/install-sass-font-awesome/main/dist/pseudo-before.html" -outfile .\dist\pseudo-before.html
 invoke-webrequest -uri "https://raw.githubusercontent.com/rogerpence/install-sass-font-awesome/main/scss/components/_icons-pseudo-before.scss" -outfile .\scss\components\_icons-pseudo-before.scss
 invoke-webrequest -uri "https://raw.githubusercontent.com/rogerpence/install-sass-font-awesome/main/scss/global.scss" -outfile .\scss\global.scss
 invoke-webrequest -uri "https://raw.githubusercontent.com/rogerpence/install-sass-font-awesome/main/.gitignore" -outfile .\.gitignore
